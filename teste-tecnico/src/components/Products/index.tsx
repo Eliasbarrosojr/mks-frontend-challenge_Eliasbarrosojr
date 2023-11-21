@@ -1,7 +1,8 @@
 import { useContext } from "react";
-import { Paragraph, ProductList } from "./style";
+import { ContentLoading, ProductList } from "./style";
 import { ProductCard } from "./ProductCard";
 import { ProductContext } from "../../providers/ProductsContext";
+import { Loading } from "../Loading";
 
 export const Products = () => {
   const { products } = useContext(ProductContext);
@@ -14,9 +15,9 @@ export const Products = () => {
           ))}
         </ProductList>
       ) : (
-        <div>
-          <Paragraph>Sem produtos</Paragraph>
-        </div>
+        <ContentLoading>
+          <Loading />
+        </ContentLoading>
       )}
     </>
   );

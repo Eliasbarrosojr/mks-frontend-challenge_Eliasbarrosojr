@@ -17,9 +17,19 @@ export interface IProductCard {
   product: IProducts;
 }
 
+export interface CartItem extends IProducts {
+  quantity: number;
+}
+
 export interface IProductsContext {
   openCart: boolean;
   setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
-  products: IProducts[];
-  setProducts: React.Dispatch<React.SetStateAction<IProducts[]>>;
+  products: CartItem[];
+  setProducts: React.Dispatch<React.SetStateAction<CartItem[]>>;
+  addProduct: (product: CartItem) => void;
+  removeProduct: (product: CartItem) => void;
+  cart: CartItem[];
+  setCart: React.Dispatch<React.SetStateAction<CartItem[]>>;
+  decreaseQuantity: (id: number) => void;
+  increaseQuantity: (id: number) => void;
 }

@@ -1,13 +1,21 @@
 import { Description, ProductItem, StyleImage } from "./style";
 import Bag from "../../../assets/Bag.svg";
-import { IProducts } from "../../../providers/types";
+import { CartItem } from "../../../providers/types";
 import { Paragraph } from "./style";
+import { useContext } from "react";
+import { ProductContext } from "../../../providers/ProductsContext";
 
 export interface IProductCard {
-  product: IProducts;
+  product: CartItem;
 }
 
 export const ProductCard = ({ product }: IProductCard) => {
+  const { addProduct } = useContext(ProductContext);
+
+  const submit = (data: CartItem) => {
+    addProduct(data);
+  };
+
   function TextoParcial() {
     const textoCompleto = `${product.description}`;
     const parteExibida = textoCompleto.slice(0, 40);
@@ -34,7 +42,7 @@ export const ProductCard = ({ product }: IProductCard) => {
         </div>
       </Description>
       <TextoParcial />
-      <button onClick={() => {}}>
+      <button onClick={() => submit(product)}>
         <img src={Bag} alt="bag" />
         Comprar
       </button>

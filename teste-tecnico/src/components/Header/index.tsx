@@ -1,7 +1,13 @@
 import { HeaderDiv, Logo } from "./style";
 import Vector from "../../assets/Vector.svg";
+import { useContext } from "react";
+import { ProductContext } from "../../providers/ProductsContext";
 
 export const Header = () => {
+  const { setOpenCart, cart } = useContext(ProductContext);
+
+  const itens = cart.length;
+
   return (
     <HeaderDiv>
       <Logo>
@@ -9,9 +15,13 @@ export const Header = () => {
         <span>Sistemas</span>
       </Logo>
 
-      <button>
-        <img src={Vector} alt="trash" className="trash" />
-        <p>0</p>
+      <button
+        onClick={() => {
+          setOpenCart(false);
+        }}
+      >
+        <img src={Vector} alt="Cart" className="Cart" />
+        <p>{itens}</p>
       </button>
     </HeaderDiv>
   );

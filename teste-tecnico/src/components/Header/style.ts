@@ -37,6 +37,24 @@ export const HeaderDiv = styled.header`
       font-weight: 600;
     }
   }
+
+  @media (max-width: 375px) {
+    height: 48px;
+    padding: 40px 20px;
+
+    button {
+      ${StyleButtons}
+      width: 52px;
+      height: 26px;
+      padding: 6px;
+    }
+
+    p {
+      color: var(--color-gray-00);
+      font-weight: 600;
+      font-size: 10px;
+    }
+  }
 `;
 
 export const Logo = styled.div`

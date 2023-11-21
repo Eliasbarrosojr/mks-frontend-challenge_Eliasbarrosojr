@@ -18,3 +18,10 @@ export const Paragraph = styled.p`
   height: 80px;
   color: var(--color-gray-00);
 `;
+
+export const ContentLoading = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+`;
