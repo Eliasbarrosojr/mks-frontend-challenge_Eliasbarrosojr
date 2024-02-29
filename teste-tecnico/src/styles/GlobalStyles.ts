@@ -8,6 +8,8 @@ export default createGlobalStyle`
     --color-gray-90: #EEEEEE;
     --color-gray-100: #ffffff;
     --color-blue: #0F52BA;
+    --color-blue: #0F52BA;
+    --color-blue: #0F52BA;
 
     font-size: 60%;   
   }
